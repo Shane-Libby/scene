@@ -33,12 +33,17 @@ public class Test : MonoBehaviour
 
     public string levelTag;
     
-    
+    List<Vector3> buttonPositions = new List<Vector3>();
 
 
     void Start() //The Start function is called on the frame that the script becomes active
     {
-        
+        // save all of the current button positions
+        buttonPositions.Add(greenButton.transform.position);
+        buttonPositions.Add(redButton.transform.position);
+        buttonPositions.Add(blueButton.transform.position);
+        buttonPositions.Add(yellowButton.transform.position);
+
         audioSource = GameObject.Find("Camera").GetComponent<AudioSource>();
         audioSource.volume = PlayerPrefs.GetFloat("Volume"); //We are setting our volume to the one that we set in the options menu
         sequence = new int[2]; //Here we are defining the sequence array's size
@@ -146,14 +151,46 @@ public class Test : MonoBehaviour
             else
             {
                 sequenceLength++; //The sequence length is one added to it
+
+                // wait
+                yield return new WaitForSeconds(0.5f);
+                // shuffle a few times
+                for (int i = 0; i < 5; ++i)
+                {
+                    ShuffleButtons();
+                    yield return new WaitForSeconds(0.1f);
+                }
+                // wait
+                yield return new WaitForSeconds(0.5f);
+
                 StartCoroutine(GenerateNextSequence()); //We continue on with this loop, increasing the sequence one colour at a time
             }
         }
     }
 
+    void ShuffleButtons()
+    {
+        // make a list of the button transforms
+        List<Transform> buttons = new List<Transform>();
+        buttons.Add(greenButton.transform);
+        buttons.Add(redButton.transform);
+        buttons.Add(blueButton.transform);
+        buttons.Add(yellowButton.transform);
+
+        // for each position
+        foreach (var position in buttonPositions)
+        {
+            // select a random button
+            Transform randomButton = buttons[Random.Range(0, buttons.Count)];
+            // move the random button to that location
+            randomButton.transform.position = position;
+            // remove the button from the list
+            buttons.Remove(randomButton);
+        }
+    }
 
 
-        public void GoToMenu() //Function used to get back to the main menu	
+    public void GoToMenu() //Function used to get back to the main menu	
     {
         audioSource.PlayOneShot(buttonClickSound);
         Application.LoadLevel(0);

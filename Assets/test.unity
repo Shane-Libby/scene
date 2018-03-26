@@ -288,7 +288,7 @@ MonoBehaviour:
   pressedSprite: {fileID: 21300000, guid: d5b88bfd22b68cb4dba39d622121c7fb, type: 3}
   audioSource: {fileID: 363838698}
   pressSound: {fileID: 0}
-  test: {fileID: 0}
+  test: {fileID: 1436597408}
   id: 1
   canClick: 0
 --- !u!60 &838002039
@@ -413,7 +413,7 @@ MonoBehaviour:
   pressedSprite: {fileID: 21300000, guid: dcb10d6d43c80be40a5f8013a1e053da, type: 3}
   audioSource: {fileID: 363838698}
   pressSound: {fileID: 0}
-  test: {fileID: 0}
+  test: {fileID: 1436597408}
   id: 2
   canClick: 0
 --- !u!60 &926716638
@@ -783,7 +783,7 @@ MonoBehaviour:
   pressedSprite: {fileID: 21300000, guid: e51d31b214cb39f41a4d453c65c5a8da, type: 3}
   audioSource: {fileID: 363838698}
   pressSound: {fileID: 0}
-  test: {fileID: 0}
+  test: {fileID: 1436597408}
   id: 4
   canClick: 0
 --- !u!60 &1093109053
@@ -1539,7 +1539,7 @@ MonoBehaviour:
   pressedSprite: {fileID: 21300000, guid: a9cf21ddf209fda4d98a6a0a2b229f83, type: 3}
   audioSource: {fileID: 363838698}
   pressSound: {fileID: 0}
-  test: {fileID: 0}
+  test: {fileID: 1436597408}
   id: 3
   canClick: 0
 --- !u!60 &1757545425
